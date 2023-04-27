@@ -1,0 +1,140 @@
+>>> print(b)
+PHOEBE Bundle: 214 parameters
+                        t0@system: 0.0 d
+                        ra@system: 0.0 deg
+                       dec@system: 0.0 deg
+                  distance@system: 1.0 m
+                    vgamma@system: 0.0 km / s
+C                      ebv@system: 0.0
+                        Av@system: 0.0
+                        Rv@system: 3.1
+                 hierarchy@system: orbit:binary(star:primary, star:secondary, envelope:contact_envelope)
+C        requiv@primary@component: 1.4079043382297984 solRad
+C    requiv_max@primary@component: 1.7048112729071976 solRad
+C    requiv_min@primary@component: 1.3790181897942564 solRad
+           teff@primary@component: 4750.0 K
+C          logg@primary@component: 4.9256049791234044
+        syncpar@primary@component: 1.0
+C        period@primary@component: 0.2207213 d
+C          freq@primary@component: 28.466600187657463 rad / d
+      gravb_bol@primary@component: 0.32
+   irrad_frac_refl_bol@primary...: 0.6
+C  irrad_frac_lost_bol@primary...: 0.4
+    ld_mode_bol@primary@component: manual
+    ld_func_bol@primary@component: logarithmic
+   ld_coeffs_bol@primary@compo...: [0.5 0.5]
+C          mass@primary@component: 6.090930459178689 solMass
+C      requiv@secondary@component: 1.1985494271479087 solRad
+C  requiv_max@secondary@component: 1.517010242659804 solRad
+C  requiv_min@secondary@component: 1.1686878057867542 solRad
+C        teff@secondary@component: 4628.465975497739 K
+C        logg@secondary@component: 4.910537416082644
+      syncpar@secondary@component: 1.0
+C      period@secondary@component: 0.2207213 d
+C        freq@secondary@component: 28.466600187657463 rad / d
+    gravb_bol@secondary@component: 0.32
+   irrad_frac_refl_bol@seconda...: 0.6
+C  irrad_frac_lost_bol@seconda...: 0.4
+   ld_mode_bol@secondary@compo...: manual
+   ld_func_bol@secondary@compo...: logarithmic
+   ld_coeffs_bol@secondary@com...: [0.5 0.5]
+C        mass@secondary@component: 4.263651321425082 solMass
+          period@binary@component: 0.2207213 d
+C           freq@binary@component: 28.466600187657463 rad / d
+            dpdt@binary@component: 0.0 s / yr
+C           per0@binary@component: 0.0 deg
+          dperdt@binary@component: 0.0 deg / yr
+C            ecc@binary@component: 0.0
+C     t0_perpass@binary@component: -0.08912897522396818 d
+      t0_supconj@binary@component: -0.03394865022396818 d
+C         t0_ref@binary@component: -0.03394865022396818 d
+C      mean_anom@binary@component: 145.37078891774476 deg
+            incl@binary@component: 78.87833819446321 deg
+               q@binary@component: 0.7
+             sma@binary@component: 3.35 solRad
+         long_an@binary@component: 0.0 deg
+C          asini@binary@component: 3.2870863538375628 solRad
+           ecosw@binary@component: 0.0
+           esinw@binary@component: 0.0
+   abun@contact_envelope@compo...: 0.0
+C  fillout_factor@contact_enve...: 0.10420923109971707
+   pot@contact_envelope@component: 3.2014350780383
+C  pot_min@contact_envelope@co...: 2.841662630008029
+C  pot_max@contact_envelope@co...: 3.243288166372894
+       teffratio@binary@component: 0.9744138895784715
+C    requivratio@binary@component: 0.8513003295769952
+C  requivsumfrac@binary@component: 0.7780459001127483
+C           sma@primary@component: 1.3794117647058823 solRad
+C         asini@primary@component: 1.35350614569782 solRad
+C         sma@secondary@component: 1.9705882352941178 solRad
+C       asini@secondary@component: 1.9335802081397429 solRad
+                   ebv@constraint: {Av@system} / {Rv@system}
+          freq@primary@constraint: 6.283185 / {period@primary@component}
+          logg@primary@constraint: log10((({mass@primary@component} / ({requiv@primary@component} ** 2.000000)) * 2942.206218) * 9.319541)
+   irrad_frac_lost_bol@primary...: 1.000000 - {irrad_frac_refl_bol@primary@component}
+        freq@secondary@constraint: 6.283185 / {period@secondary@component}
+        logg@secondary@constraint: log10((({mass@secondary@component} / ({requiv@secondary@component} ** 2.000000)) * 2942.206218) * 9.319541)
+   irrad_frac_lost_bol@seconda...: 1.000000 - {irrad_frac_refl_bol@secondary@component}
+          asini@binary@constraint: {sma@binary@component} * (sin({incl@binary@component}))
+            t0_perpass@constraint: t0_supconj_to_perpass({t0_supconj@binary@component}, {period@binary@component}, {ecc@binary@component}, {per0@binary@component}, {dpdt@binary@component}, {dperdt@binary@component}, {t0@system})
+                t0_ref@constraint: t0_supconj_to_ref({t0_supconj@binary@component}, {period@binary@component}, {ecc@binary@component}, {per0@binary@component}, {dpdt@binary@component}, {dperdt@binary@component}, {t0@system})
+             mean_anom@constraint: (6.283185 * ({t0@system} - {t0_perpass@binary@component})) / {period@binary@component}
+                  per0@constraint: arctan2({esinw@binary@component}, {ecosw@binary@component})
+                   ecc@constraint: (({esinw@binary@component} ** 2.000000) + ({ecosw@binary@component} ** 2.000000)) ** 0.500000
+           freq@binary@constraint: 6.283185 / {period@binary@component}
+        requiv@primary@constraint: pot_to_requiv_contact({pot@contact_envelope@component}, {q@binary@component}, {sma@binary@component}, 1)
+      requiv@secondary@constraint: pot_to_requiv_contact({pot@contact_envelope@component}, {q@binary@component}, {sma@binary@component}, 2)
+        fillout_factor@constraint: pot_to_fillout_factor({q@binary@component}, {pot@contact_envelope@component})
+               pot_min@constraint: potential_contact_L23({q@binary@component})
+               pot_max@constraint: potential_contact_L1({q@binary@component})
+                  teff@constraint: {teffratio@binary@component} * {teff@primary@component}
+           requivratio@constraint: {requiv@secondary@component} / {requiv@primary@component}
+         requivsumfrac@constraint: ({requiv@primary@component} + {requiv@secondary@component}) / {sma@binary@component}
+          mass@primary@constraint: (39.478418 * ({sma@binary@component} ** 3.000000)) / ((({period@binary@component} ** 2.000000) * ({q@binary@component} + 1.000000)) * 2942.206217504419328179210424423218)
+           sma@primary@constraint: {sma@binary@component} / ((1.000000 / {q@binary@component}) + 1.000000)
+         asini@primary@constraint: ({sma@binary@component} * (sin({incl@binary@component}))) / ((1.000000 / {q@binary@component}) + 1.000000)
+        period@primary@constraint: {period@binary@component} / {syncpar@primary@component}
+    requiv_max@primary@constraint: requiv_contact_L23({q@binary@component}, {sma@binary@component}, 1)
+    requiv_min@primary@constraint: requiv_contact_L1({q@binary@component}, {sma@binary@component}, 1)
+        mass@secondary@constraint: (39.478418 * ({sma@binary@component} ** 3.000000)) / ((({period@binary@component} ** 2.000000) * ((1.000000 / {q@binary@component}) + 1.000000)) * 2942.206217504419328179210424423218)
+         sma@secondary@constraint: {sma@binary@component} / ({q@binary@component} + 1.000000)
+       asini@secondary@constraint: ({sma@binary@component} * (sin({incl@binary@component}))) / ({q@binary@component} + 1.000000)
+      period@secondary@constraint: {period@binary@component} / {syncpar@secondary@component}
+   requiv_max@secondary@constr...: requiv_contact_L23({q@binary@component}, {sma@binary@component}, 2)
+   requiv_min@secondary@constr...: requiv_contact_L1({q@binary@component}, {sma@binary@component}, 2)
+     sample_from@phoebe01@compute: []
+        comments@phoebe01@compute:
+      use_server@phoebe01@compute: none
+   dynamics_method@phoebe01@co...: keplerian
+            ltte@phoebe01@compute: False
+    irrad_method@phoebe01@compute: horvat
+   boosting_method@phoebe01@co...: none
+   eclipse_method@phoebe01@com...: native
+   horizon_method@phoebe01@com...: boolean
+   mesh_method@contact_envelop...: marching
+   ntriangles@contact_envelope...: 3000
+     atm@primary@phoebe01@compute: blackbody
+   atm@secondary@phoebe01@compute: blackbody
+       default_time_source@figure: None
+        latex_repr@primary@figure:
+             color@primary@figure: blue
+            marker@primary@figure: .
+         linestyle@primary@figure: solid
+      latex_repr@secondary@figure:
+           color@secondary@figure: orange
+          marker@secondary@figure: o
+       linestyle@secondary@figure: dashed
+         latex_repr@binary@figure:
+   latex_repr@contact_envelope...:
+R          phoebe_version@setting: 2.4.9
+              dict_filter@setting: {}
+             dict_set_all@setting: False
+       run_checks_compute@setting: ['*']
+        run_checks_solver@setting: ['*']
+      run_checks_solution@setting: ['*']
+        run_checks_figure@setting: ['*']
+        run_checks_server@setting: ['*']
+          auto_add_figure@setting: True
+       auto_remove_figure@setting: True
+               web_client@setting: False
+           web_client_url@setting: ui.phoebe-project.org
